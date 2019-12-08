@@ -1,0 +1,114 @@
+ AS V1.42 Beta [Bld 124] - source file temp.asm - page 1 - 2/23/2018 20:44:19
+
+
+       1/       0 :                     hi	FUNCTION x, x / 256
+       2/       0 :                     lo	FUNCTION x, x # 256
+       3/       0 :                     
+       4/       0 : =$1234              value	equ $1234
+       5/       0 :                     
+       6/       0 :                     foo	MACRO x
+       7/       0 :                     	LDA x+x
+       8/       0 :                     	ENDM
+       9/       0 :                     
+      10/       0 :                     derp	MACRO x
+      11/       0 :                     	FCB $65, lo(x)
+      12/       0 :                     	FCB [20]0
+      13/       0 :                     	ADC hi(x+5)
+      14/       0 :                     	ADC lo(x+5)
+      15/       0 :                     	foo x+2
+      16/       0 :                     	ENDM
+      17/       0 :                     
+      18/       0 : (MACRO)             	derp $1234
+      18/       0 : 65 34                       FCB $65, lo($1234)
+      18/       2 : 00 00 00 00 00 00           FCB [20]0
+                    00 00 00 00 00 00 
+                    00 00 00 00 00 00 
+                    00 00 
+      18/      16 : 65 12                       ADC hi($1234+5)
+      18/      18 : 65 39                       ADC lo($1234+5)
+      18/      1A :  (MACRO-2)                  foo $1234+2
+      18/      1A : AD 6C 24                    LDA $1234+2+$1234+2
+      19/      1D : (MACRO)             	derp 2+3
+      19/      1D : 65 05                       FCB $65, lo(2+3)
+      19/      1F : 00 00 00 00 00 00           FCB [20]0
+                    00 00 00 00 00 00 
+                    00 00 00 00 00 00 
+                    00 00 
+      19/      33 : 65 00                       ADC hi(2+3+5)
+      19/      35 : 65 0A                       ADC lo(2+3+5)
+      19/      37 :  (MACRO-2)                  foo 2+3+2
+      19/      37 : A5 0E                       LDA 2+3+2+2+3+2
+      20/      39 :                     	
+      21/      39 :                     Label:
+      22/      39 : (MACRO)             	derp value
+      22/      39 : 65 34                       FCB $65, lo(VALUE)
+      22/      3B : 00 00 00 00 00 00           FCB [20]0
+                    00 00 00 00 00 00 
+                    00 00 00 00 00 00 
+                    00 00 
+      22/      4F : 65 12                       ADC hi(VALUE+5)
+      22/      51 : 65 39                       ADC lo(VALUE+5)
+      22/      53 :  (MACRO-2)                  foo VALUE+2
+      22/      53 : AD 6C 24                    LDA VALUE+2+VALUE+2
+      23/      56 : 4C 39 00            	JMP Label
+      24/      59 :                     
+      25/      59 :                     
+ AS V1.42 Beta [Bld 124] - source file temp.asm - page 2 - 2/23/2018 20:44:19
+
+
+  symbol table (* = unused):
+  ------------------------
+
+*ARCHITECTURE :  i386-unknown-win32 - | *BIGENDIAN :                      0 - |
+*BRANCHEXT :                      0 - | *CASESENSITIVE :                  0 - |
+*CONSTPI :        3.141592653589793 - | *DATE :                   2/23/2018 - |
+*FALSE :                          0 - | *FULLPMMU :                       1 - |
+*HAS64 :                          1 - | *HASDSP :                         0 - |
+*HASFPU :                         0 - | *HASPMMU :                        0 - |
+*INEXTMODE :                      0 - | *INLWORDMODE :                    0 - |
+*INMAXMODE :                      0 - | *INSRCMODE :                      0 - |
+*INSUPMODE :                      0 - |  LABEL :                         39 C |
+*LISTON :                         1 - | *MACEXP :                         7 - |
+*MOMCPU :                     65C02 - | *MOMCPUNAME :                 65C02 - |
+*NESTMAX :                      100 - | *PACKING :                        0 - |
+*PADDING :                        1 - | *RELAXED :                        0 - |
+*TIME :                    20:44:19 - | *TRUE :                           1 - |
+ VALUE :                       1234 - | *VERSION :                     142F - |
+
+     30 symbols
+     28 unused symbols
+
+ AS V1.42 Beta [Bld 124] - source file temp.asm - page 3 - 2/23/2018 20:44:19
+
+
+  defined macros:
+  ---------------
+
+DERP                                  | FOO                                  
+
+      2 macros
+
+ AS V1.42 Beta [Bld 124] - source file temp.asm - page 4 - 2/23/2018 20:44:19
+
+
+  defined functions:
+  ------------------
+
+LO                                    | HI                                   
+
+ AS V1.42 Beta [Bld 124] - source file temp.asm - page 5 - 2/23/2018 20:44:19
+
+
+  codepages:
+  ----------
+
+STANDARD (0 changed characters)
+
+
+0.01 seconds assembly time
+
+     25 lines source file
+     43 lines incl. macro expansions
+      1 pass
+      0 errors
+      0 warnings

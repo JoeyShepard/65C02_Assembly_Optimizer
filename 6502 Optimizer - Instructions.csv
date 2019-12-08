@@ -1,0 +1,258 @@
+,,,,,,,Relies on,,,,,,,,,,,,Modifies,,,,,,,,,,,
+Hex,Op code,Size,Cycles,BCD +1,Repeatable,Peephole?,A,X,Y,SP,mem,N,V,B,D,I,Z,C,A,X,Y,SP,mem,N,V,B,D,I,Z,C
+0x00,BRK,1,7,No,,No,,,,,,,,,,,,,,,,,,N,N,1,N,N,N,N
+0x01,"ORA ($00,X)",2,6,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x02,NOP #$00,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x03,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x04,TSB $00,2,5,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,Y,N
+0x05,ORA $00,2,3,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x06,ASL $00,2,5,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x07,RMB0 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x08,PHP,1,3,No,No,Yes,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N,N
+0x09,ORA #$00,2,2,No,Yes,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x0A,ASL,1,2,No,No,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,Y
+0x0B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x0C,TSB $0000,3,6,No,,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,Y,N
+0x0D,ORA $0000,3,4,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x0E,ASL $0000,3,6,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x0F,"BBR0 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x10,BPL $0000,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x11,"ORA ($00),Y",2,5,No,Yes,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x12,ORA ($00),2,5,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x13,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x14,TRB $00,2,5,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,Y,N
+0x15,"ORA $00,X",2,4,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x16,"ASL $00,X",2,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x17,RMB1 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x18,CLC,1,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,0
+0x19,"ORA $0000,Y",3,4,No,Yes,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x1A,INC,1,2,No,No,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x1B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x1C,TRB $0000,3,6,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,Y,N
+0x1D,"ORA $0000,X",3,4,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x1E,"ASL $0000,X",3,7,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x1F,"BBR1 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x20,JSR $0000,3,6,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x21,"AND ($00,X)",2,6,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x22,NOP #$00,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x23,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x24,BIT $00,2,3,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,Y,N
+0x25,AND $00,2,3,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x26,ROL $00,2,5,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,Y,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x27,RMB2 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x28,PLP,1,4,No,No,Yes,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,Y,Y,Y,Y,Y,Y,Y
+0x29,AND #$00,2,2,No,Yes,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x2A,ROL,1,2,No,No,Yes,Y,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N,N,N,N,Y,Y
+0x2B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x2C,BIT $0000,3,4,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,Y,N
+0x2D,AND $0000,3,4,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x2E,ROL $0000,3,6,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,Y,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x2F,"BBR2 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x30,BMI $0000,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x31,"AND ($00),Y",2,5,No,Yes,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x32,AND ($00),2,5,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x33,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x34,"BIT $00,X",2,4,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,Y,N
+0x35,"AND $00,X",2,4,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x36,"ROL $00,X",2,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,Y,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x37,RMB3 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x38,SEC,1,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,1
+0x39,"AND $0000,Y",3,4,No,Yes,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x3A,DEC,1,2,No,No,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x3B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x3C,"BIT $0000,X",3,4,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,Y,N
+0x3D,"AND $0000,X",3,4,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x3E,"ROL $0000,X",3,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x3F,"BBR3 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x40,RTI,1,6,No,,No,,,,,,,,,,,,,,,,,,Y,Y,Y,Y,Y,Y,Y
+0x41,"EOR ($00,X)",2,6,No,No,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x42,NOP #$00,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x43,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x44,NOP $00,2,3,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x45,EOR $00,2,3,No,No,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x46,LSR $00,2,5,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,0,N,N,N,N,Y,Y
+0x47,RMB4 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x48,PHA,1,3,No,No,Yes,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N,N
+0x49,EOR #$00,2,2,No,No,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x4A,LSR,1,2,No,No,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,0,N,N,N,N,Y,Y
+0x4B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x4C,JMP $0000,3,3,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x4D,EOR $0000,3,4,No,No,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0x4E,LSR $0000,3,6,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,0,N,N,N,N,Y,Y
+0x4F,"BBR4 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x50,BVC $0000,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x51,"EOR ($00),Y",2,5,No,No,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x52,EOR ($00),2,5,No,No,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0x53,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x54,"NOP $00,X",2,4,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x55,"EOR $00,X",2,4,No,No,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x56,"LSR $00,X",2,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,0,N,N,N,N,Y,Y
+0x57,RMB5 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x58,CLI,1,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,0,N,N
+0x59,"EOR $0000,Y",3,4,No,No,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x5A,PHY,1,3,No,No,Yes,N,N,Y,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N,N
+0x5B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x5C,NOP $0000,3,8,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x5D,"EOR $0000,X",3,4,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0x5E,"LSR $0000,X",3,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,0,N,N,N,N,Y,Y
+0x5F,"BBR5 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x60,RTS,1,6,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x61,"ADC ($00,X)",2,6,Yes,No,Yes,Y,Y,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x62,NOP #$00,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x63,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x64,STZ $00,2,3,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x65,ADC $00,2,3,Yes,No,Yes,Y,N,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x66,ROR $00,2,5,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,Y,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x67,RMB6 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x68,PLA,1,4,No,No,Yes,N,N,N,Y,N,N,N,N,N,N,N,N,Y,N,N,Y,N,Y,N,N,N,N,Y,N
+0x69,ADC #$00,2,2,Yes,No,Yes,Y,N,N,N,N,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x6A,ROR,1,2,No,No,Yes,Y,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N,N,N,N,Y,Y
+0x6B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x6C,JMP ($0000),3,6,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x6D,ADC $0000,3,4,Yes,No,Yes,Y,N,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x6E,ROR $0000,3,6,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,Y,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x6F,"BBR6 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x70,BVS $0000,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x71,"ADC ($00),Y",2,5,Yes,No,Yes,Y,N,Y,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x72,ADC ($00),2,5,Yes,No,Yes,Y,N,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x73,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x74,"STZ $00,X",2,4,No,Yes,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x75,"ADC $00,X",2,4,Yes,No,Yes,Y,Y,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x76,"ROR $00,X",2,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,Y,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x77,RMB7 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x78,SEI,1,2,No,,No,,,,,,,,,,,,,,,,,,N,N,N,N,1,N,N
+0x79,"ADC $0000,Y",3,4,Yes,No,Yes,Y,N,Y,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x7A,PLY,1,4,No,No,Yes,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,Y,Y,N,Y,N,N,N,N,Y,N
+0x7B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x7C,"JMP ($0000,X)",3,6,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x7D,"ADC $0000,X",3,4,Yes,No,Yes,Y,Y,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0x7E,"ROR $0000,X",3,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,Y,N,N,N,N,Y,Y,N,N,N,N,Y,Y
+0x7F,"BBR7 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x80,BRA $0000,2,3,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x81,"STA ($00,X)",2,6,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x82,NOP #$00,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x83,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x84,STY $00,2,3,No,Yes,Yes,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x85,STA $00,2,3,No,Yes,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x86,STX $00,2,3,No,Yes,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x87,SMB0 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x88,DEY,1,2,No,No,Yes,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,Y,N,N,N,N,Y,N
+0x89,BIT #$00,2,2,No,Yes,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N
+0x8A,TXA,1,2,No,Yes,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x8B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x8C,STY $0000,3,4,No,Yes,Yes,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x8D,STA $0000,3,4,No,Yes,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x8E,STX $0000,3,4,No,Yes,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x8F,"BBS0 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x90,BCC $0000,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x91,"STA ($00),Y",2,6,No,Yes,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x92,STA ($00),2,5,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x93,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x94,"STY $00,X",2,4,No,Yes,Yes,N,Y,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x95,"STA $00,X",2,4,No,Yes,Yes,Y,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x96,"STX $00,Y",2,4,No,Yes,Yes,N,Y,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x97,SMB1 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x98,TYA,1,2,No,Yes,Yes,N,N,Y,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0x99,"STA $0000,Y",2,5,No,Yes,Yes,Y,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x9A,TXS,1,2,No,Yes,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N,N
+0x9B,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0x9C,STZ $0000,3,4,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x9D,"STA $0000,X",3,5,No,Yes,Yes,Y,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x9E,"STZ $0000,X",3,5,No,Yes,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0x9F,"BBS1 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xA0,LDY #$00,2,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,Y,N,N,N,N,Y,N
+0xA1,"LDA ($00,X)",2,6,No,Yes,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xA2,LDX #$00,2,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xA3,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xA4,LDY $00,2,3,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,Y,N,N,Y,N,N,N,N,Y,N
+0xA5,LDA $00,2,3,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xA6,LDX $00,2,3,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xA7,SMB2 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0xA8,TAY,1,2,No,Yes,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,Y,N,N,N,N,Y,N
+0xA9,LDA #$00,2,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xAA,TAX,1,2,No,Yes,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xAB,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xAC,LDY $0000,3,4,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,Y,N,N,Y,N,N,N,N,Y,N
+0xAD,LDA $0000,3,4,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xAE,LDX $0000,3,4,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xAF,"BBS2 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xB0,BCS $0000,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xB1,"LDA ($00),Y",2,5,No,Yes,Yes,N,N,Y,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xB2,LDA ($00),2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xB3,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xB4,"LDY $00,X",2,4,No,Yes,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,Y,N,N,Y,N,N,N,N,Y,N
+0xB5,"LDA $00,X",2,4,No,Yes,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xB6,"LDX $00,Y",2,4,No,Yes,Yes,N,N,Y,N,Y,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xB7,SMB3 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0xB8,CLV,1,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,0,N,N,N,N,N
+0xB9,"LDA $0000,Y",3,4,No,Yes,Yes,N,N,Y,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xBA,TSX,1,2,No,Yes,Yes,N,N,N,Y,N,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xBB,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xBC,"LDY $0000,X",3,4,No,Yes,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,Y,N,N,Y,N,N,N,N,Y,N
+0xBD,"LDA $0000,X",3,4,No,Yes,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,Y,N,N,N,N,Y,N,N,N,N,Y,N
+0xBE,"LDX $0000,Y",3,4,No,Yes,Yes,N,N,Y,N,Y,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xBF,"BBS3 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xC0,CPY #$00,2,2,No,Yes,Yes,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xC1,"CMP ($00,X)",2,6,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xC2,NOP #$00,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xC3,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xC4,CPY $00,2,3,No,Yes,Yes,N,N,Y,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xC5,CMP $00,2,3,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xC6,DEC $00,2,5,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0xC7,SMB4 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0xC8,INY,1,2,No,No,Yes,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,Y,N,N,N,N,Y,N
+0xC9,CMP #$00,2,2,No,Yes,Yes,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xCA,DEX,1,2,No,No,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xCB,WAI,1,3,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xCC,CPY $0000,3,4,No,Yes,Yes,N,N,Y,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xCD,CMP $0000,3,4,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xCE,DEC $0000,3,6,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0xCF,"BBS4 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xD0,BNE $0000,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xD1,"CMP ($00),Y",2,5,No,Yes,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xD2,CMP ($00),2,5,No,Yes,Yes,Y,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xD3,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xD4,"NOP $00,X",2,4,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xD5,"CMP $00,X",2,4,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xD6,"DEC $00,X",2,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0xD7,SMB5 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0xD8,CLD,1,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,0,N,N,N
+0xD9,"CMP $0000,Y",3,4,No,Yes,Yes,Y,N,Y,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xDA,PHX,1,3,No,No,Yes,N,Y,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N,N
+0xDB,STP,1,3,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xDC,NOP $0000,3,4,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xDD,"CMP $0000,X",3,4,No,Yes,Yes,Y,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xDE,"DEC $0000,X",3,7,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0xDF,"BBS5 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xE0,CPX #$00,2,2,No,Yes,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xE1,"SBC ($00,X)",2,6,Yes,No,Yes,Y,Y,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xE2,NOP #$00,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xE3,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xE4,CPX $00,2,3,No,Yes,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xE5,SBC $00,2,3,Yes,No,Yes,Y,N,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xE6,INC $00,2,5,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0xE7,SMB6 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0xE8,INX,1,2,No,No,Yes,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,Y,N,N,N,N,Y,N
+0xE9,SBC #$00,2,2,Yes,No,Yes,Y,N,N,N,N,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xEA,NOP,1,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xEB,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xEC,CPX $0000,3,4,No,Yes,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,Y,Y
+0xED,SBC $0000,3,4,Yes,No,Yes,Y,N,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xEE,INC $0000,3,6,No,No,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0xEF,"BBS6 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xF0,BEQ $0000,2,2,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xF1,"SBC ($00),Y",2,5,Yes,No,Yes,Y,N,Y,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xF2,SBC ($00),2,5,Yes,No,Yes,Y,N,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xF3,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xF4,NOP $0000,3,4,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xF5,"SBC $00,X",2,4,Yes,No,Yes,Y,Y,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xF6,"INC $00,X",2,6,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0xF7,SMB7 $00,2,5,No,Yes,Yes,N,N,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,N,N,N,N,N,N,N
+0xF8,SED,1,2,No,Yes,Yes,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,1,N,N,N
+0xF9,"SBC $0000,Y",3,4,Yes,No,Yes,Y,N,Y,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xFA,PLX,1,4,No,No,Yes,N,N,N,Y,N,N,N,N,N,N,N,N,Y,N,N,Y,N,Y,N,N,N,N,Y,N
+0xFB,NOP,1,1,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xFC,NOP $0000,3,4,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
+0xFD,"SBC $0000,X",3,4,Yes,No,Yes,Y,Y,N,N,Y,N,N,N,Y,N,N,Y,Y,N,N,N,N,Y,Y,N,N,N,Y,Y
+0xFE,"INC $0000,X",3,7,No,No,Yes,N,Y,N,N,Y,N,N,N,N,N,N,N,N,N,N,N,Y,Y,N,N,N,N,Y,N
+0xFF,"BBS7 $00,$0000",3,5,No,,No,,,,,,,,,,,,,,,,,,,,,,,,
