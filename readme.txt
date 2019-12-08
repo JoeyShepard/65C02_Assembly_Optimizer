@@ -1,11 +1,11 @@
-6502 Assembly Optimizer v0.1
+6502 Assembly Optimizer
 Joey Shepard
 joey.m.shepard@gmail.com
 
 
 OVERVIEW
 ========
-This project analyzes and optimizes assembly language code written for the 6502/65C02 processor. (It's still a work in progress and has not been released.)
+This project analyzes and optimizes assembly language code written for the 6502/65C02 processor.
 
 When 6502 assembly programmers need temporary storage for local variables in a function, they can choose between storing those variables on a stack or assigning the variables a static location in memory. Unfortunately, the 6502 is relatively poor at stack manipulation. Using the stack to store temporary variables is slow and monopolizes processor resources better used for other purposes, leading to slow and inefficient code. On the other hand, avoiding the stack and assigning each local variable a static address in the first 256 bytes of memory is the fastest form of memory access and does not require any other resources. The disadvantage is that these 256 bytes are quickly used up if each byte is assigned to only one variable in one function. This project analyzes program flow and variable usage to statically allocate variable addresses in a way that allows multiple functions to utilize the same memory. This offers the compact memory usage of a stack without sacrificing speed or processor resources and requires no runtime overhead.
 
