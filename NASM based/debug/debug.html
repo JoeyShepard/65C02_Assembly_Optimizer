@@ -7,9 +7,6 @@
 <canvas id="GraphCanvas" width="1500" height="400" style="border:1px solid #000000;"></canvas>
 <br><br>
 <span style="font-size:24px;font-weight:bold;">Local Variable Assignments</span><br>
-<div style="width:800px;">Each row in the table below represents a byte of memory used to hold local variables by functions. Each block represents a local variable. Multiple blocks per row show that that byte of memory is being reused by multiple functions.
-This scheme is very efficient compared to the main two alternatives: stack based addressing, which is slow and monopolizes processor resources, and allocating each byte to only one function, which wastes the scarce 256 bytes of fast zero page memory.
-</div>
 <table id="localtable" border="1" style='font-family:"Arial; font-size:14px'>
 	<tr>
 		<td>(none)</td>
@@ -101,12 +98,12 @@ graphwidth=13;
 graphheight=4;
 tabledata.push([['main','foo',1,0]]);
 tabledata.push([['main','bar',1,0]]);
-tabledata.push([['gets','start_X',1,0],['test_funcC','test_var1',1,0],['puts','ptr',2,0],['put_int16','num',2,0],['test_funcA','test_var',1,0],['test_funcD','test_var1',1,0]]);
-tabledata.push([['gets','goal',1,0],['test_funcC','test_var2',1,0],['puts','ptr',2,1],['put_int16','num',2,1],['test_funcD','test_var2',1,0]]);
-tabledata.push([['gets','offset',1,0],['test_funcC','test_var3',1,0],['put_int16','printed',1,0]]);
-tabledata.push([['gets','state',1,0],['clrscr','ptr',2,0],['test_funcE','test_var',1,0]]);
-tabledata.push([['putc','ptr',2,0],['clrscr','ptr',2,1]]);
-tabledata.push([['putc','ptr',2,1],['clrscr','line_counter',1,0]]);
+tabledata.push([['gets','start_X',1,0],['clrscr','ptr',2,0],['puts','ptr',2,0],['put_int16','num',2,0],['test_funcE','test_var',1,0]]);
+tabledata.push([['gets','goal',1,0],['clrscr','ptr',2,1],['puts','ptr',2,1],['put_int16','num',2,1]]);
+tabledata.push([['gets','offset',1,0],['clrscr','line_counter',1,0],['put_int16','printed',1,0]]);
+tabledata.push([['gets','state',1,0],['test_funcD','test_var1',1,0],['test_funcC','test_var1',1,0],['test_funcA','test_var',1,0]]);
+tabledata.push([['putc','ptr',2,0],['test_funcD','test_var2',1,0],['test_funcC','test_var2',1,0]]);
+tabledata.push([['putc','ptr',2,1],['test_funcC','test_var3',1,0]]);
 tabledata.push([['putc','gptr',2,0],['test_funcB','test_var1',1,0]]);
 tabledata.push([['putc','gptr',2,1],['test_funcB','test_var2',1,0]]);
 tabledata.push([['putc','temp_mult',1,0]]);
@@ -118,7 +115,7 @@ tabledata.push([['putc','char_buff',8,4]]);
 tabledata.push([['putc','char_buff',8,5]]);
 tabledata.push([['putc','char_buff',8,6]]);
 tabledata.push([['putc','char_buff',8,7]]);
-max_row_length=6;
+max_row_length=5;
 	
 	var c = document.getElementById("GraphCanvas");
 	//c.style.padding="0px 50px 50px 0px";	//This is inside the picture, not outside!
