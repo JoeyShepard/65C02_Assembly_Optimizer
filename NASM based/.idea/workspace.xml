@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34d01785-6e9e-470b-b476-41e67d827847" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/6502 Optimizer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/6502 Optimizer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assigned.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/const.py" beforeDir="false" afterPath="$PROJECT_DIR$/const.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/copy to test.asm.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/globals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/AS cleaner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/temp.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/ops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/optimize.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.py" beforeDir="false" afterPath="$PROJECT_DIR$/output.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/callgraph.html" beforeDir="false" afterPath="$PROJECT_DIR$/output/callgraph.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/processed.html" beforeDir="false" afterPath="$PROJECT_DIR$/output/processed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parentest.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse.py" beforeDir="false" afterPath="$PROJECT_DIR$/parse.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pp_6502.py" beforeDir="false" afterPath="$PROJECT_DIR$/pp_6502.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simplify.py" beforeDir="false" afterPath="$PROJECT_DIR$/simplify.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test old 1.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test3.asm" beforeDir="false" />
-    </list>
+    <list default="true" id="34d01785-6e9e-470b-b476-41e67d827847" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +15,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1U7mQuhzYTZorU9jgcq8WQvxBT1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -214,34 +188,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="429" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586313700246">
+    <state x="313" y="127" key="FileChooserDialogImpl" timestamp="1596085579784">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="429" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1586313700246" />
-    <state width="986" height="195" key="GridCell.Tab.0.bottom" timestamp="1586314042204">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="986" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586314042204" />
-    <state width="986" height="195" key="GridCell.Tab.0.center" timestamp="1586314042203">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="986" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586314042203" />
-    <state width="986" height="195" key="GridCell.Tab.0.left" timestamp="1586314042203">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="986" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586314042203" />
-    <state width="986" height="195" key="GridCell.Tab.0.right" timestamp="1586314042204">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="986" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586314042204" />
-    <state x="482" y="44" key="SettingsEditor" timestamp="1586313743880">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="482" y="44" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586313743880" />
-    <state x="637" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1586314702519">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="637" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1586314702519" />
+    <state x="313" y="127" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596085579784" />
   </component>
   <component name="masterDetails">
     <states>
