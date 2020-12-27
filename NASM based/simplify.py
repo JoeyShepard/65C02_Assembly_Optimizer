@@ -182,6 +182,15 @@ def SimplifySource():
                                 g.proglist[i].Ignore = True
                                 g.proglist[i].Resolved = True
 
+        #ORG format used by NASM since 2.15 breaks ORG macro :(
+        if len(templist)==4:
+            if templist[0].type==BUFF_OPEN_BRACKET:
+                if templist[3].type == BUFF_CLOSE_BRACKET:
+                    if templist[1].data.upper()=='ORG':
+                        g.proglist[i].TokenList = [Token(g.proglist[i].TokenList[1].data, BUFF_ASMWORD),
+                                                   g.proglist[i].TokenList[2]]
+
+
         #Labels (only works if label definition comes first! moved below)
         # for k,a in enumerate(templist):
         #     if a.type==BUFF_ALPHA:
@@ -330,6 +339,8 @@ def SimplifySource():
             print("   unresolved references after 10 passes!")
             for a in [a for a in g.proglist if a.Resolved==False]:
                 print("   Line",a.FileLine,a.RawStr)
+                #print(a.TokenList)
+                #print(a.Resolved)
             sys.exit()
         elif unresolved_count==1:
             print("  ",unresolved_count,"reference left")
@@ -1052,7 +1063,9 @@ def AssignInstructions():
                             if searchmode==MODE.ARG_UNKNOWN_Y:
                                 if op_size==1:
                                     if line.FormatStr=="O(*),Y": searchmode=MODE.INDIRECT_Y
-                                    else: searchmode=MODE.ZP_Y
+                                    #no such mode!
+                                    #else: searchmode=MODE.ZP_Y
+                                    else: searchmode=MODE.ABS_Y
                                 else:
                                     searchmode=MODE.ABS_Y
                             if searchmode in [MODE.ZP_Y,MODE.INDIRECT_Y]:
@@ -1061,7 +1074,7 @@ def AssignInstructions():
                             #elif searchmode in [MODE.ABS_Y]:
                                 #print("   ABS,Y:",end=" ")
                         else:
-                            print("Error: invalid instruction format",line.RawStr.strip())
+                            print("Error: invalid instruction format:",line.RawStr.strip())
                             sys.exit()
 
                         if line.TokenList[0].data in [a.OpCode for a in g.instructionlist.values() if a.OpMode==searchmode]:
@@ -1111,10 +1124,10 @@ def AssignInstructions():
                                 g.proglist[i].Source = " "+line.TokenList[0].data + " "
                                 g.proglist[i].Source += "$" + hex(op_data[0])[2:].upper()+",Y"
                             else:
-                                print("Error: invalid op mode", line.RawStr.strip())
+                                print("Error: invalid op mode:", line.RawStr.strip())
                                 sys.exit()
                         else:
-                            print("Error: invalid instruction format",line.RawStr.strip())
+                            print("Error: invalid instruction format:",line.RawStr.strip())
                             sys.exit()
 
     #print('End of function')

@@ -135,6 +135,9 @@ def PrintSource(filename):
                     elif token.type==BUFF_ASMWORD:
                         if tokenlast.type in space_tokens: templine+=' '
                         elif tokenlast.type==BUFF_EQUAL and tokenlast.data.upper()=='EQU': templine+=' '
+                        #[org $xxxx] format output by NASM 2.15 doesn't have space at beginning
+                        if token.data.upper()=="ORG":
+                            templine+=" "
                         templine+=token.data
                     elif token.type==BUFF_DFS:
                         if tokenlast.type in space_tokens: templine+=' '
